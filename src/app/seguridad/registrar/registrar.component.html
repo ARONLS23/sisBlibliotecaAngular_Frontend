@@ -1,0 +1,35 @@
+<section>
+  <form fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="registrarUsuario(f)" fxLayoutGap="15px">
+
+    <mat-form-field>
+      <mat-label>Ingrese nombre</mat-label>
+      <input type="text" required placeholder="Ingrese nombre" ngModel name="nombre" matInput>
+      <mat-error>Debe ingresar un nombre</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Ingrese apellidos</mat-label>
+      <input type="text" required placeholder="Ingrese apellidos" ngModel name="apellidos" matInput>
+      <mat-error>Debe ingresar los apellidos</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Ingrese username</mat-label>
+      <input type="text" required placeholder="Ingrese username" ngModel name="username" matInput>
+      <mat-error>Debe ingresar su username</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Ingrese Email</mat-label>
+      <input type="email" matInput placeholder="aron@gmail.com" ngModel name="email" email required
+        #emailInput="ngModel" />
+      <mat-error>El email es invalido</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Ingrese Password</mat-label>
+      <input type="password" matInput placeholder="Ingresa password" ngModel name="password" required minlength="7" />
+      <mat-error>El password debe mas de 7 caracteres</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="f.invalid">Guardar</button>
+  </form>
+</section>
