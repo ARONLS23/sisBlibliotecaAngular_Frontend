@@ -1,31 +1,19 @@
-<!-- <app-usuario></app-usuario> -->
-<!-- <app-libros></app-libros> -->
-<!-- <h1>Mi Aplicacioón Angular</h1>
-<a routerLink="/">Inicio</a>
-<br>
-<a routerLink="libros">Libros Favoritos</a>
-<router-outlet></router-outlet> -->
 <mat-sidenav-container>
+
   <mat-sidenav #menu role="navigation">
-    <p>Elemento SidNaV</p>
+
+    <app-menu-lista (menuToggle)="menu.toggle()"></app-menu-lista>
+
   </mat-sidenav>
+
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="menu.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Libro Market</span>
-      <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
-        <ul fxLayout ="row" fxLayoutGap="10px" class="navegacion-menu">
-          <li><a routerLink="/registrar">Registrar</a></li>
-          <li><a routerLink="/login">Login</a></li>
-          <li><a routerLink="/">Home</a></li>
-        </ul>
-      </div>
-    </mat-toolbar>
+
+    <app-barra (menuToggle)="menu.toggle()"></app-barra>
+
     <main>
       <router-outlet></router-outlet>
     </main>
 
   </mat-sidenav-content>
+
 </mat-sidenav-container>

@@ -1,0 +1,54 @@
+<mat-list role="list">
+  <ng-container *ngIf="estadoUsuario; else notLoggedIn">
+    <mat-list-item role="listitem">
+      <a routerLink="/" class="list-item" (click)="onCerrarMenu()">
+        <mat-icon>home</mat-icon>
+        <span class="navegacion-list-label">Inicio</span>
+      </a>
+    </mat-list-item>
+
+    <mat-list-item role="listitem">
+      <a routerLink="/books" class="list-item" (click)="onCerrarMenu()">
+        <mat-icon>library_books</mat-icon>
+        <span class="navegacion-list-label">Libros</span>
+      </a>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <a routerLink="/autores" class="list-item" (click)="onCerrarMenu()">
+        <mat-icon>person</mat-icon>
+        <span class="navegacion-list-label">Autores</span>
+      </a>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <a routerLink="/login" class="list-item" (click)="onCerrarMenu()">
+        <mat-icon>eject</mat-icon>
+        <span class="navegacion-list-label">Salir</span>
+      </a>
+    </mat-list-item>
+  </ng-container>
+
+  <ng-template #notLoggedIn>
+    <mat-list-item role="listitem">
+      <a
+        routerLink="/registrar"
+        class="list-item"
+        (click)="onCerrarMenu()"
+        *ngIf="!estadoUsuario"
+      >
+        <mat-icon>how_to_reg</mat-icon>
+        <span class="navegacion-list-label">Registrar</span>
+      </a>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <a
+        routerLink="/login"
+        class="list-item"
+        (click)="onCerrarMenu()"
+        *ngIf="!estadoUsuario"
+      >
+        <mat-icon>login</mat-icon>
+        <span class="navegacion-list-label">Login</span>
+      </a>
+    </mat-list-item>
+  </ng-template>
+</mat-list>
