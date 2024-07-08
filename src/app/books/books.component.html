@@ -1,0 +1,56 @@
+<div fxLayoutAlign="center center">
+  <mat-form-field fxFlex="60%">
+    <input
+      matInput
+      type="text"
+      (keyup)="Buscar($event)"
+      placeholder="Ingrese texto"
+    />
+  </mat-form-field>
+</div>
+
+<table
+  mat-table
+  [dataSource]="dataSource"
+  matSort
+  class="mat-elevation-z8"
+  (matSortChange)="ordenarColumnas($event)"
+>
+  <ng-container matColumnDef="titulo">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Título</th>
+    <td mat-cell *matCellDef="let element">{{ element.titulo }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="descripcion">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</th>
+    <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="autor">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Autor</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.autor.nombreCompleto }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="precio">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+    <td mat-cell *matCellDef="let element">{{ element.precio }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="desplegarColumnas"></tr>
+  <tr mat-row *matRowDef="let row; columns: desplegarColumnas"></tr>
+</table>
+
+<mat-paginator
+  (page)="eventoPaginador($event)"
+  #paginacion
+  [pageSize]="librosPorPagina"
+  [pageSizeOptions]="paginaCombo"
+  [length]="totalLibros"
+>
+</mat-paginator>
+
+<button mat-fab id="boton-agregar" color="warn" (click)="abrirDialog()">
+  <mat-icon>add</mat-icon>
+</button>

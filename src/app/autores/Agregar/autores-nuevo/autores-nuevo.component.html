@@ -1,0 +1,54 @@
+<form action="" #f="ngForm" (ngSubmit)="guardarAutor(f)">
+  <h2 mat-dialog-title="">Agregar Nuevo Autor</h2>
+  <mat-dialog-content>
+    <section
+      fxLayoutAlign="center"
+      style="margin-top: 10px; margin-bottom: 10px"
+    >
+      <mat-card fxFlex="100%">
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+          <mat-form-field>
+            <mat-label>Ingrese Nombre</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="ejem. Cesar"
+              name="nombre"
+              ngModel
+              required
+            />
+            <mat-error>Debe ingresar el nombre del autor</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Ingrese Apellido</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="ejem. Vallejo"
+              name="apellido"
+              ngModel
+              required
+            />
+            <mat-error>Debe ingresar el apellido del autor</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Ingrese Grado Académico</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="ejem. Ingenriero de Sistemas"
+              name="gradoAcademico"
+              ngModel
+              required
+            />
+            <mat-error>Debe ingresar el grado académico del autor</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card>
+    </section>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true">Cerrar</button>
+    <button mat-button>Guardar</button>
+  </mat-dialog-actions>
+</form>

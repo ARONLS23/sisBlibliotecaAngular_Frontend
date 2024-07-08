@@ -27,6 +27,12 @@
   background-color: green;
 }
 
-.mat-form-field{
+mat-form-field{
   width: 300px;
+}
+
+mat-card{
+  width: 300px;
+  text-align: center;
+  margin-top: 20px;
 }
